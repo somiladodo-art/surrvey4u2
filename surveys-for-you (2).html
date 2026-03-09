@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveys For You | Find Out What You Could Earn</title>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '814435844758701');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=814435844758701&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --orange: #F05C14;
+            --orange-dark: #C44A0A;
+            --orange-light: #FFF3EC;
+            --orange-mid: rgba(240,92,20,0.12);
+            --ink: #000000;
+            --ink-mid: #111827;
+            --ink-soft: #374151;
+            --cream: #FDFCFA;
+            --white: #FFFFFF;
+            --line: #E8E4DC;
+            --green: #15803D;
+            --green-bg: #F0FDF4;
+            --green-border: rgba(21,128,61,0.2);
+            --red: #DC2626;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            font-weight: 500;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Grain */
+        body::after {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.025'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 9999; opacity: 0.5;
+        }
+
+        /* Blob */
+        .blob {
+            position: fixed;
+            width: 800px; height: 800px; border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(240,92,20,0.07) 0%, transparent 68%);
+            top: -200px; right: -200px;
+            pointer-events: none; z-index: 0;
+        }
+
+        /* ── PAGE GRID ── */
+        .page {
+            position: relative; z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 520px;
+            min-height: 100vh;
+        }
+
+        /* ── LEFT ── */
+        .left {
+            padding: 36px 52px 52px;
+            display: flex; flex-direction: column;
+            border-right: 1px solid var(--line);
+        }
+
+        .logo {
+            display: inline-flex; align-items: center; gap: 10px;
+            text-decoration: none; margin-bottom: 56px;
+        }
+
+        .logo-mark {
+            width: 36px; height: 36px;
+            background: var(--orange); border-radius: 9px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .logo-mark svg { width: 20px; height: 20px; }
+
+        .logo-name {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 700; font-size: 1.1rem;
+            color: var(--ink); letter-spacing: -0.02em;
+        }
+
+        .left-body { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 460px; }
+
+        .pill {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: var(--orange-light);
+            border: 1px solid rgba(240,92,20,0.25);
+            border-radius: 100px; padding: 5px 13px;
+            font-size: 0.74rem; font-weight: 600;
+            color: var(--orange-dark); letter-spacing: 0.01em;
+            margin-bottom: 22px; width: fit-content;
+            text-transform: uppercase;
+        }
+
+        .pill-dot {
+            width: 5px; height: 5px; border-radius: 50%;
+            background: var(--orange);
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
+
+        .left-h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            line-height: 1.1; letter-spacing: -0.03em;
+            color: var(--ink); margin-bottom: 16px;
+        }
+
+        .left-h1 em { font-style: normal; color: var(--orange); }
+
+        .left-sub {
+            font-size: 0.97rem; color: #111827;
+            line-height: 1.7; font-weight: 500;
+            margin-bottom: 36px; max-width: 400px;
+        }
+
+        /* Steps list */
+        .steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 40px; }
+
+        .step-row {
+            display: flex; align-items: flex-start; gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .step-row:first-child { border-top: 1px solid var(--line); }
+
+        .step-num {
+            width: 28px; height: 28px; min-width: 28px;
+            border-radius: 50%;
+            border: 1.5px solid var(--line);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.72rem; font-weight: 700;
+            color: var(--ink-soft); margin-top: 1px;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        .step-num.done {
+            background: var(--green-bg);
+            border-color: var(--green-border);
+            color: var(--green);
+        }
+
+        .step-content-label {
+            font-size: 0.82rem; font-weight: 600; color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .step-content-desc {
+            font-size: 0.78rem; color: var(--ink-soft); line-height: 1.4;
+        }
+
+        /* Earning range card */
+        .earn-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px 22px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 28px;
+        }
+
+        .earn-card-label {
+            font-size: 0.72rem; font-weight: 600;
+            color: var(--ink-soft); text-transform: uppercase;
+            letter-spacing: 0.06em; margin-bottom: 12px;
+        }
+
+        .earn-bars { display: flex; flex-direction: column; gap: 8px; }
+
+        .earn-bar-row { display: flex; align-items: center; gap: 10px; }
+
+        .earn-bar-tag {
+            font-size: 0.72rem; color: var(--ink-soft);
+            width: 70px; flex-shrink: 0;
+        }
+
+        .earn-bar-track {
+            flex: 1; height: 6px;
+            background: #F0EDE8; border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .earn-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--orange), #FF9252);
+            border-radius: 100px;
+            transform-origin: left;
+            animation: growBar 1s cubic-bezier(0.4,0,0.2,1) both;
+        }
+
+        @keyframes growBar { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+
+        .earn-bar-val {
+            font-size: 0.72rem; font-weight: 600; color: var(--ink);
+            min-width: 60px; text-align: right;
+        }
+
+        /* Trustpilot */
+        .tp-row { display: flex; align-items: center; gap: 10px; }
+        .tp-stars { display: flex; gap: 2px; }
+        .tp-star { width: 17px; height: 17px; background: #00B67A; border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+        .tp-star svg { width: 10px; height: 10px; fill: white; }
+        .tp-text { font-size: 0.75rem; color: var(--ink-soft); }
+        .tp-text strong { color: var(--ink); }
+
+        /* ── RIGHT / QUIZ ── */
+        .right {
+            background: var(--white);
+            display: flex; flex-direction: column;
+            position: relative;
+        }
+
+        .right-stripe {
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange) 0%, #FF9252 100%);
+            flex-shrink: 0;
+        }
+
+        .quiz-wrap {
+            flex: 1;
+            padding: 36px 40px 36px;
+            display: flex; flex-direction: column;
+            overflow-y: auto;
+        }
+
+        /* Progress */
+        .prog-row {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 28px; flex-shrink: 0;
+        }
+
+        .prog-steps { display: flex; gap: 4px; flex: 1; }
+
+        .prog-pip {
+            flex: 1; height: 4px; border-radius: 100px;
+            background: #F0EDE8;
+            transition: background 0.4s ease;
+        }
+
+        .prog-pip.filled { background: var(--orange); }
+        .prog-pip.active { background: rgba(240,92,20,0.4); }
+
+        .prog-label {
+            font-size: 0.72rem; font-weight: 600;
+            color: var(--ink-soft); white-space: nowrap;
+        }
+
+        /* Live activity ticker */
+        .ticker {
+            display: flex; align-items: center; gap: 8px;
+            background: var(--green-bg);
+            border: 1px solid var(--green-border);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 0.75rem; color: var(--green);
+            font-weight: 500; margin-bottom: 24px;
+            flex-shrink: 0;
+            animation: fadeSlideDown 0.4s ease both;
+        }
+
+        .ticker-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--green); flex-shrink: 0;
+            animation: pulse 1.5s ease infinite;
+        }
+
+        @keyframes fadeSlideDown { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+
+        /* Quiz step */
+        .q-step { display: none; flex-direction: column; flex: 1; }
+        .q-step.active { display: flex; animation: slideIn 0.32s cubic-bezier(0.4,0,0.2,1) both; }
+        .q-step.leaving { animation: slideOut 0.22s ease both; }
+
+        @keyframes slideIn { from{opacity:0;transform:translateX(16px)} to{opacity:1;transform:translateX(0)} }
+        @keyframes slideOut { from{opacity:1;transform:translateX(0)} to{opacity:0;transform:translateX(-16px)} }
+
+        .q-number {
+            font-size: 0.7rem; font-weight: 700;
+            color: var(--orange); letter-spacing: 0.08em;
+            text-transform: uppercase; margin-bottom: 6px;
+        }
+
+        .q-text {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 700; font-size: 1.22rem;
+            letter-spacing: -0.025em; line-height: 1.3;
+            color: var(--ink); margin-bottom: 6px;
+        }
+
+        .q-sub {
+            font-size: 0.78rem; color: #1F2937;
+            line-height: 1.5; font-weight: 500; margin-bottom: 20px;
+        }
+
+        /* Options */
+        .opts { display: flex; flex-direction: column; gap: 9px; }
+
+        .opt {
+            display: grid;
+            grid-template-columns: 36px 1fr auto;
+            align-items: center; gap: 12px;
+            padding: 13px 15px;
+            background: var(--cream);
+            border: 1.5px solid var(--line);
+            border-radius: 11px;
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s, transform 0.1s;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem; color: #000000; font-weight: 600;
+            text-align: left;
+        }
+
+        .opt:hover {
+            border-color: var(--orange);
+            background: var(--orange-light);
+            color: var(--ink);
+            transform: translateX(2px);
+        }
+
+        .opt.sel {
+            border-color: var(--orange);
+            background: var(--orange-light);
+            color: var(--ink);
+        }
+
+        .opt-icon {
+            width: 36px; height: 36px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .opt.sel .opt-icon { background: rgba(240,92,20,0.08); border-color: rgba(240,92,20,0.3); }
+
+        .opt-icon svg { width: 16px; height: 16px; color: var(--ink-soft); }
+        .opt.sel .opt-icon svg { color: var(--orange); }
+
+        .opt-text { font-weight: 500; line-height: 1.3; }
+
+        .opt-check {
+            width: 20px; height: 20px; border-radius: 50%;
+            border: 1.5px solid var(--line);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: all 0.15s;
+        }
+
+        .opt.sel .opt-check { background: var(--orange); border-color: var(--orange); }
+        .opt-check svg { display: none; width: 10px; height: 10px; }
+        .opt.sel .opt-check svg { display: block; }
+
+        /* Reaction */
+        .reaction {
+            display: none; align-items: flex-start; gap: 9px;
+            background: var(--green-bg); border: 1px solid var(--green-border);
+            border-radius: 9px; padding: 10px 13px;
+            margin-top: 12px;
+            font-size: 0.8rem; color: var(--green); line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .reaction.show { display: flex; animation: fadeSlideDown 0.3s ease both; }
+
+        .reaction-icon { width: 14px; height: 14px; flex-shrink: 0; margin-top: 1px; }
+
+        /* Earn indicator */
+        .earn-indicator {
+            display: none;
+            align-items: center; justify-content: space-between;
+            background: var(--orange-light);
+            border: 1px solid rgba(240,92,20,0.2);
+            border-radius: 9px; padding: 9px 13px;
+            margin-top: 8px;
+        }
+
+        .earn-indicator.show { display: flex; animation: fadeSlideDown 0.3s 0.15s ease both; }
+
+        .earn-ind-label { font-size: 0.75rem; color: var(--orange-dark); font-weight: 500; }
+
+        .earn-ind-val {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800; font-size: 1rem;
+            color: var(--orange); letter-spacing: -0.02em;
+        }
+
+        /* Next button */
+        .btn-next {
+            width: 100%; margin-top: 18px;
+            background: var(--orange); color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            padding: 13px 20px; border: none; border-radius: 11px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            box-shadow: 0 4px 14px rgba(240,92,20,0.28);
+            transition: background 0.2s, transform 0.15s, opacity 0.2s, box-shadow 0.2s;
+            opacity: 0.38; pointer-events: none;
+        }
+
+        .btn-next.on { opacity: 1; pointer-events: all; }
+        .btn-next.on:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(240,92,20,0.36); }
+        .btn-next svg { width: 16px; height: 16px; transition: transform 0.2s; }
+        .btn-next.on:hover svg { transform: translateX(3px); }
+
+        /* ── REVEAL ── */
+        .reveal { display: none; flex-direction: column; }
+        .reveal.active { display: flex; animation: slideIn 0.4s ease both; }
+
+        .reveal-head {
+            text-align: center; padding: 4px 0 20px;
+        }
+
+        .reveal-badge {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: linear-gradient(135deg, #FFF0E6, #FDDCC4);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 14px;
+            box-shadow: 0 0 0 8px rgba(240,92,20,0.08);
+        }
+
+        .reveal-badge svg { width: 36px; height: 36px; color: var(--orange); }
+
+        .reveal-h {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800; font-size: 1.4rem;
+            letter-spacing: -0.03em; color: var(--ink);
+            margin-bottom: 5px;
+        }
+
+        .reveal-h .amt { color: var(--orange); font-size: 1.9rem; }
+
+        .reveal-sub {
+            font-size: 0.8rem; color: var(--ink-soft); line-height: 1.5;
+            max-width: 300px; margin: 0 auto;
+        }
+
+        /* Breakdown */
+        .breakdown {
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 14px; padding: 14px 18px;
+            margin: 16px 0;
+        }
+
+        .bk-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 5px 0; font-size: 0.8rem;
+        }
+
+        .bk-label { color: var(--ink-soft); }
+        .bk-val { font-weight: 600; color: var(--orange); }
+        .bk-divider { height: 1px; background: var(--line); margin: 7px 0; }
+        .bk-total { display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 700; color: var(--ink); }
+        .bk-total-val { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1rem; color: var(--orange); }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: #FFFBEB;
+            border: 1px solid rgba(217,119,6,0.25);
+            border-radius: 9px; padding: 10px 13px;
+            font-size: 0.73rem; color: #92400E;
+            line-height: 1.5; margin-bottom: 16px;
+            display: flex; gap: 8px; align-items: flex-start;
+        }
+
+        .disclaimer svg { width: 13px; height: 13px; flex-shrink: 0; margin-top: 1px; color: #D97706; }
+
+        /* Matched surveys */
+        .match-label {
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--ink-soft); margin-bottom: 10px;
+        }
+
+        .survey-cards { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+
+        .survey-card {
+            display: flex; align-items: center; gap: 12px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 10px; padding: 11px 14px;
+        }
+
+        .survey-card-icon {
+            width: 34px; height: 34px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .survey-card-icon svg { width: 17px; height: 17px; }
+
+        .survey-card-body { flex: 1; }
+        .survey-card-name { font-size: 0.8rem; font-weight: 600; color: var(--ink); }
+        .survey-card-meta { font-size: 0.72rem; color: var(--ink-soft); margin-top: 1px; }
+
+        .survey-card-earn {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800; font-size: 0.95rem;
+            color: var(--orange); letter-spacing: -0.02em;
+            text-align: right;
+        }
+
+        .survey-card-earn span { display: block; font-size: 0.65rem; font-weight: 400; color: var(--ink-soft); font-family: 'DM Sans', sans-serif; letter-spacing: 0; }
+
+        /* Reg form */
+        .reg-note { font-size: 0.78rem; color: var(--ink-soft); text-align: center; margin-bottom: 10px; }
+        .reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+
+        .reg-input {
+            width: 100%; padding: 11px 13px;
+            border: 1.5px solid var(--line); border-radius: 10px;
+            font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+            color: var(--ink); background: var(--white);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .reg-input::placeholder { color: var(--ink-soft); }
+        .reg-input:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(240,92,20,0.08); }
+        .reg-input.err { border-color: var(--red); box-shadow: 0 0 0 3px rgba(220,38,38,0.08); }
+
+        .btn-claim {
+            width: 100%; background: var(--orange); color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.97rem; font-weight: 700;
+            padding: 14px; border: none; border-radius: 11px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+            box-shadow: 0 4px 18px rgba(240,92,20,0.35);
+            transition: background 0.2s, transform 0.15s;
+            margin-top: 12px; letter-spacing: -0.01em;
+        }
+
+        .btn-claim:hover { background: var(--orange-dark); transform: translateY(-1px); }
+        .btn-claim svg { width: 17px; height: 17px; }
+
+        .secure-note {
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+            font-size: 0.7rem; color: var(--ink-soft); margin-top: 9px;
+        }
+
+        .secure-note svg { width: 11px; height: 11px; }
+
+        /* ── SUCCESS ── */
+        .success { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex: 1; padding: 20px 0; }
+        .success.active { display: flex; animation: slideIn 0.4s ease both; }
+
+        .success-icon {
+            width: 64px; height: 64px; background: var(--green-bg);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .success-icon svg { width: 28px; height: 28px; color: var(--green); }
+
+        .success h3 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 1.5rem; font-weight: 800;
+            letter-spacing: -0.025em; margin-bottom: 10px;
+        }
+
+        .success p { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.6; max-width: 270px; margin-bottom: 20px; }
+
+        .success-bonus {
+            background: var(--orange-light); border: 1px solid rgba(240,92,20,0.2);
+            border-radius: 12px; padding: 14px 28px; margin-bottom: 20px;
+        }
+
+        .success-bonus-label { font-size: 0.68rem; font-weight: 700; color: var(--orange-dark); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+
+        .success-bonus-amt {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800; font-size: 2rem; color: var(--orange); letter-spacing: -0.03em;
+        }
+
+        .success-bonus-note { font-size: 0.68rem; color: var(--ink-soft); margin-top: 2px; }
+
+        .btn-ghost {
+            background: none; border: 1.5px solid var(--line);
+            border-radius: 10px; padding: 9px 22px;
+            font-family: 'DM Sans', sans-serif; font-size: 0.83rem;
+            color: var(--orange); cursor: pointer; font-weight: 500;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-ghost:hover { border-color: var(--orange); background: var(--orange-light); }
+
+        /* ── FOOTER ── */
+        .footer {
+            border-top: 1px solid var(--line); padding: 28px 0;
+            background: var(--white);
+        }
+
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 16px;
+        }
+
+        .partners { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+
+        .partner {
+            display: flex; align-items: center; gap: 7px;
+            opacity: 0.38; filter: grayscale(1);
+            transition: opacity 0.2s, filter 0.2s; cursor: default;
+        }
+
+        .partner:hover { opacity: 0.85; filter: grayscale(0); }
+
+        .partner-icon {
+            width: 22px; height: 22px; border-radius: 5px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .partner-name {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 0.88rem; font-weight: 700;
+            color: var(--ink); letter-spacing: -0.02em;
+        }
+
+        .legal {
+            font-size: 0.69rem; color: var(--ink-soft);
+            display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+        }
+
+        .legal a { color: var(--ink-soft); text-decoration: none; }
+        .legal a:hover { color: var(--ink); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 880px) {
+            .page { grid-template-columns: 1fr; }
+            .left { display: none; }
+            .right { min-height: 100vh; border-left: none; }
+            .quiz-wrap { padding: 28px 22px 24px; }
+        }
+    </style>
+</head>
+<body>
+<div class="blob"></div>
+
+<div class="page">
+
+    <!-- ══ LEFT ══ -->
+    <div class="left">
+        <a href="#" class="logo">
+            <div class="logo-mark">
+                <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 10 8 15 17 6"/></svg>
+            </div>
+            <span class="logo-name">Surveys For You</span>
+        </a>
+
+        <div class="left-body">
+            <div class="pill"><span class="pill-dot"></span>Live opportunities available</div>
+
+            <h1 class="left-h1">Answer 5 questions.<br>See what you could <em>actually earn.</em></h1>
+
+            <p class="left-sub">We match your profile to the highest-paying panels in South Africa. Your answers determine how much bonus potential you unlock when you sign up.</p>
+
+            <div class="steps">
+                <div class="step-row">
+                    <div class="step-num" id="snum1">1</div>
+                    <div>
+                        <div class="step-content-label">Answer your profile questions</div>
+                        <div class="step-content-desc">Takes under 60 seconds. No wrong answers.</div>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num" id="snum2">2</div>
+                    <div>
+                        <div class="step-content-label">See your personalised earning estimate</div>
+                        <div class="step-content-desc">We calculate your match score across 4 panels.</div>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num" id="snum3">3</div>
+                    <div>
+                        <div class="step-content-label">Create your free account & claim your bonus</div>
+                        <div class="step-content-desc">Bonus is unlocked after your first completed survey.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="earn-card">
+                <div class="earn-card-label">What members typically earn per month</div>
+                <div class="earn-bars">
+                    <div class="earn-bar-row">
+                        <span class="earn-bar-tag">30 min/week</span>
+                        <div class="earn-bar-track"><div class="earn-bar-fill" style="width:25%;animation-delay:0.1s"></div></div>
+                        <span class="earn-bar-val">R200–R500</span>
+                    </div>
+                    <div class="earn-bar-row">
+                        <span class="earn-bar-tag">1–2 hrs/week</span>
+                        <div class="earn-bar-track"><div class="earn-bar-fill" style="width:50%;animation-delay:0.2s"></div></div>
+                        <span class="earn-bar-val">R600–R1,100</span>
+                    </div>
+                    <div class="earn-bar-row">
+                        <span class="earn-bar-tag">3–5 hrs/week</span>
+                        <div class="earn-bar-track"><div class="earn-bar-fill" style="width:75%;animation-delay:0.3s"></div></div>
+                        <span class="earn-bar-val">R1,200–R2,000</span>
+                    </div>
+                    <div class="earn-bar-row">
+                        <span class="earn-bar-tag">5+ hrs/week</span>
+                        <div class="earn-bar-track"><div class="earn-bar-fill" style="width:100%;animation-delay:0.4s"></div></div>
+                        <span class="earn-bar-val">R2,000–R3,200</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tp-row">
+                <div class="tp-stars">
+                    <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg></div>
+                    <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg></div>
+                    <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg></div>
+                    <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg></div>
+                    <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg></div>
+                </div>
+                <span class="tp-text"><strong>4.5/5</strong> · 3,000+ reviews on Trustpilot</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ RIGHT / QUIZ ══ -->
+    <div class="right">
+        <div class="right-stripe"></div>
+        <div class="quiz-wrap">
+
+            <!-- Progress pips -->
+            <div class="prog-row" id="progRow">
+                <div class="prog-steps" id="progPips">
+                    <div class="prog-pip active"></div>
+                    <div class="prog-pip"></div>
+                    <div class="prog-pip"></div>
+                    <div class="prog-pip"></div>
+                    <div class="prog-pip"></div>
+                </div>
+                <span class="prog-label" id="progLabel">Question 1 of 5</span>
+            </div>
+
+            <!-- Live ticker (rotates messages) -->
+            <div class="ticker" id="ticker">
+                <div class="ticker-dot"></div>
+                <span id="tickerText">47 people from South Africa completed this quiz today</span>
+            </div>
+
+            <!-- ══ Q1: AGE ══ -->
+            <div class="q-step active" id="q1">
+                <div class="q-number">Question 1 / 5</div>
+                <div class="q-text">How old are you?</div>
+                <div class="q-sub">This determines which survey panels you're eligible for — some pay significantly more for specific age groups.</div>
+                <div class="opts">
+                    <button class="opt" onclick="pick(this,1,'age','Under 25',40,50)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                        <span class="opt-text">Under 25</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,1,'age','25–34',60,700)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+                        <span class="opt-text">25 – 34</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,1,'age','35–49',75,900)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                        <span class="opt-text">35 – 49</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,1,'age','50+',55,750)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                        <span class="opt-text">50 or older</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                </div>
+                <div class="reaction" id="r1">
+                    <svg class="reaction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span id="r1t"></span>
+                </div>
+                <div class="earn-indicator" id="ei1">
+                    <span class="earn-ind-label">Estimated monthly range for your age group</span>
+                    <span class="earn-ind-val" id="ei1v"></span>
+                </div>
+                <button class="btn-next" id="n1" onclick="next(1,2)">
+                    Continue
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <!-- ══ Q2: OCCUPATION ══ -->
+            <div class="q-step" id="q2">
+                <div class="q-number">Question 2 / 5</div>
+                <div class="q-text">What is your current occupation?</div>
+                <div class="q-sub">Survey panels categorise respondents by occupation. Certain categories are in much higher demand — and that directly affects your payout rates.</div>
+                <div class="opts">
+                    <button class="opt" onclick="pick(this,2,'occ','Professional / Manager',88,1100)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                        <span class="opt-text">Professional / Manager</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,2,'occ','Business owner',95,1400)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                        <span class="opt-text">Business owner / Self-employed</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,2,'occ','Skilled worker',72,850)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                        <span class="opt-text">Skilled / Technical worker</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,2,'occ','Student',52,500)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                        <span class="opt-text">Student</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,2,'occ','Homemaker',60,650)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+                        <span class="opt-text">Homemaker / Stay-at-home</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,2,'occ','Unemployed',45,400)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                        <span class="opt-text">Currently unemployed</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                </div>
+                <div class="reaction" id="r2">
+                    <svg class="reaction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span id="r2t"></span>
+                </div>
+                <div class="earn-indicator" id="ei2">
+                    <span class="earn-ind-label">Panel match rate for your occupation</span>
+                    <span class="earn-ind-val" id="ei2v"></span>
+                </div>
+                <button class="btn-next" id="n2" onclick="next(2,3)">
+                    Continue
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <!-- ══ Q3: SHOPPING ══ -->
+            <div class="q-step" id="q3">
+                <div class="q-number">Question 3 / 5</div>
+                <div class="q-text">How often do you shop online?</div>
+                <div class="q-sub">E-commerce and retail brands are the largest buyers of survey responses in South Africa. Frequent shoppers qualify for more opportunities.</div>
+                <div class="opts">
+                    <button class="opt" onclick="pick(this,3,'shop','Weekly or more',85,1000)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                        <span class="opt-text">Weekly or more often</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,3,'shop','A few times a month',72,750)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+                        <span class="opt-text">A few times a month</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,3,'shop','Rarely',55,550)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+                        <span class="opt-text">Rarely — only for big purchases</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,3,'shop','Never',42,380)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div>
+                        <span class="opt-text">I prefer in-store shopping</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                </div>
+                <div class="reaction" id="r3">
+                    <svg class="reaction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span id="r3t"></span>
+                </div>
+                <div class="earn-indicator" id="ei3">
+                    <span class="earn-ind-label">Retail & e-commerce surveys available for you</span>
+                    <span class="earn-ind-val" id="ei3v"></span>
+                </div>
+                <button class="btn-next" id="n3" onclick="next(3,4)">
+                    Continue
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <!-- ══ Q4: INTEREST ══ -->
+            <div class="q-step" id="q4">
+                <div class="q-number">Question 4 / 5</div>
+                <div class="q-text">Which category interests you most?</div>
+                <div class="q-sub">Your area of interest determines which panel partners we match you with. Higher-demand categories unlock better pay-per-survey rates.</div>
+                <div class="opts">
+                    <button class="opt" onclick="pick(this,4,'cat','Finance',92,1200)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+                        <span class="opt-text">Finance & Banking</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,4,'cat','Health',82,950)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                        <span class="opt-text">Health & Wellness</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,4,'cat','Technology',87,1050)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+                        <span class="opt-text">Technology & Gadgets</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,4,'cat','Food',70,780)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+                        <span class="opt-text">Food & Lifestyle</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                </div>
+                <div class="reaction" id="r4">
+                    <svg class="reaction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span id="r4t"></span>
+                </div>
+                <div class="earn-indicator" id="ei4">
+                    <span class="earn-ind-label">Typical pay-per-survey in this category</span>
+                    <span class="earn-ind-val" id="ei4v"></span>
+                </div>
+                <button class="btn-next" id="n4" onclick="next(4,5)">
+                    Continue
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <!-- ══ Q5: TIME ══ -->
+            <div class="q-step" id="q5">
+                <div class="q-number">Question 5 / 5</div>
+                <div class="q-text">How much free time can you spare each week?</div>
+                <div class="q-sub">This helps us recommend the right number of surveys. You can always adjust later — even 30 minutes a week adds up.</div>
+                <div class="opts">
+                    <button class="opt" onclick="pick(this,5,'time','30 min',50,400)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                        <span class="opt-text">30 minutes or less</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,5,'time','1–2 hrs',70,750)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                        <span class="opt-text">1 – 2 hours</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,5,'time','3–5 hrs',86,1400)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                        <span class="opt-text">3 – 5 hours</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                    <button class="opt" onclick="pick(this,5,'time','5+ hrs',95,2000)">
+                        <div class="opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <span class="opt-text">5+ hours — I'm committed</span>
+                        <span class="opt-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>
+                    </button>
+                </div>
+                <div class="reaction" id="r5">
+                    <svg class="reaction-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span id="r5t"></span>
+                </div>
+                <div class="earn-indicator" id="ei5">
+                    <span class="earn-ind-label">Your estimated monthly earning potential</span>
+                    <span class="earn-ind-val" id="ei5v"></span>
+                </div>
+                <button class="btn-next" id="n5" onclick="showReveal()">
+                    Calculate my earning potential
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <!-- ══ REVEAL ══ -->
+            <div class="reveal" id="reveal">
+                <div class="reveal-head">
+                    <div class="reveal-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="reveal-h">You could earn up to<br><span class="amt" id="revAmt">R1,200</span>/month</div>
+                    <div class="reveal-sub">Based on your profile and available surveys. Actual earnings vary — here's the breakdown of what you could unlock.</div>
+                </div>
+
+                <div class="breakdown">
+                    <div class="bk-row"><span class="bk-label">Profile match score</span><span class="bk-val" id="bkScore">87%</span></div>
+                    <div class="bk-row"><span class="bk-label">Panels you qualify for</span><span class="bk-val" id="bkPanels">4 of 4</span></div>
+                    <div class="bk-row"><span class="bk-label">Surveys available right now</span><span class="bk-val" id="bkSurveys">12 surveys</span></div>
+                    <div class="bk-divider"></div>
+                    <div class="bk-total"><span>Welcome bonus (on first survey)</span><span class="bk-total-val" id="bkBonus">Up to R150</span></div>
+                </div>
+
+                <div class="disclaimer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    The welcome bonus is credited to your account once you complete your first survey. Earnings shown are estimates based on member averages and are not guaranteed.
+                </div>
+
+                <div class="match-label">Your matched survey panels</div>
+                <div class="survey-cards" id="surveyCards"></div>
+
+                <div class="reg-note">Sign up free to access these surveys and claim your bonus</div>
+                <div class="reg-row">
+                    <input class="reg-input" type="text" id="rfn" placeholder="First name">
+                    <input class="reg-input" type="text" id="rln" placeholder="Last name">
+                </div>
+                <input class="reg-input" type="email" id="rem" placeholder="Email address" style="width:100%;margin-bottom:0;">
+
+                <button class="btn-claim" onclick="claim()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Create my free account &amp; see my surveys
+                </button>
+
+                <div class="secure-note">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Free forever · No credit card · Unsubscribe anytime
+                </div>
+            </div>
+
+            <!-- ══ SUCCESS ══ -->
+            <div class="success" id="success">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3>You're all set!</h3>
+                <p>Check your inbox for your confirmation link. Activate your account and your welcome bonus will be credited after your first completed survey.</p>
+                <div class="success-bonus">
+                    <div class="success-bonus-label">Your welcome bonus</div>
+                    <div class="success-bonus-amt" id="successAmt">Up to R150</div>
+                    <div class="success-bonus-note">Credited after first survey completion</div>
+                </div>
+                <button class="btn-ghost" onclick="location.reload()">Start over</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="partners">
+            <div class="partner"><div class="partner-icon" style="background:#E8F0FE;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#4285F4"><circle cx="12" cy="12" r="10"/></svg></div><span class="partner-name">Toluna</span></div>
+            <div class="partner"><div class="partner-icon" style="background:#EDE9FE;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#7C3AED"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><span class="partner-name">Valued Opinions</span></div>
+            <div class="partner"><div class="partner-icon" style="background:#FDE8F0;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#EC4899"><circle cx="12" cy="12" r="10"/></svg></div><span class="partner-name">LifePoints</span></div>
+            <div class="partner"><div class="partner-icon" style="background:#ECFDF5;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#10B981"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><span class="partner-name">OpinionWorld</span></div>
+        </div>
+        <div class="legal"><span>&copy; 2026 Surveys For You</span><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+</footer>
+
+<script>
+    // ── DATA ──
+    const A = {}; // answers store: { key: { val, score, earn } }
+    const TOTAL = 5;
+
+    const REACTIONS = {
+        age: {
+            'Under 25':  "Youth panels are growing fast — brands want Gen Z perspectives on everything from social media to financial products.",
+            '25–34':     "The 25–34 bracket is the most sought-after demographic by South African brands this quarter. Strong match.",
+            '35–49':     "Household decision-makers are in very high demand by FMCG and insurance brands. You'll access premium surveys.",
+            '50+':       "Financial services and healthcare brands pay significantly more for your age group. Excellent earning potential."
+        },
+        occ: {
+            'Professional / Manager': "Decision-maker profiles unlock B2B surveys that pay R60–R120 per session — some of the highest rates on the platform.",
+            'Business owner':         "Business owners are a premium demographic. You'll qualify for exclusive finance, insurance, and B2B panels.",
+            'Skilled worker':         "Skilled workers match well across FMCG, automotive, and technology panels — consistent survey availability.",
+            'Student':                "Students access education, tech, and lifestyle panels. Great for building consistent weekly income around your schedule.",
+            'Homemaker':              "Homemakers are in high demand for FMCG, food, and retail surveys — some of the highest-volume categories in SA.",
+            'Unemployed':             "You qualify for our flexible track — surveys available 24/7 with no schedule requirements."
+        },
+        shop: {
+            'Weekly or more':       "Frequent online shoppers are prime candidates for retail panels paying R50–R100 per survey. High match rate.",
+            'A few times a month':  "Monthly shoppers match dozens of active FMCG and retail surveys currently open on our platform.",
+            'Rarely':               "Even occasional shoppers provide valuable perspective — brands specifically seek balanced consumer viewpoints.",
+            'Never':                "In-store shoppers are actually underrepresented in research panels — you'll qualify for specialist retail surveys."
+        },
+        cat: {
+            'Finance':     "Finance & banking surveys pay the most per minute on our platform — typically R60–R120 for 15 minutes.",
+            'Health':      "Health and wellness panels are the fastest-growing category in SA. Surveys open daily at R40–R80 each.",
+            'Technology':  "Tech surveys are short, frequent and well-paid. Brands like Vodacom and Samsung sponsor regular studies.",
+            'Food':        "Food and lifestyle surveys post daily across all four of our partner panels. Ideal for consistent income."
+        },
+        time: {
+            '30 min':   "30 minutes a week is enough to complete 2–3 surveys and earn R200–R500 per month.",
+            '1–2 hrs':  "1–2 hours per week unlocks our full survey library. Most members at this level earn R600–R1,100/month.",
+            '3–5 hrs':  "At 3–5 hours per week, members typically earn R1,200–R2,000/month. We'll fill your queue daily.",
+            '5+ hrs':   "Maximum commitment = maximum earnings. We'll reserve our highest-tier surveys for your queue first."
+        }
+    };
+
+    const EARN_INDICATORS = {
+        age: {
+            'Under 25': 'R200–R600/month', '25–34': 'R700–R1,200/month',
+            '35–49': 'R900–R1,600/month', '50+': 'R750–R1,300/month'
+        },
+        occ: {
+            'Professional / Manager': '87% match rate', 'Business owner': '94% match rate',
+            'Skilled worker': '72% match rate', 'Student': '61% match rate',
+            'Homemaker': '68% match rate', 'Unemployed': '54% match rate'
+        },
+        shop: {
+            'Weekly or more': '18 surveys available', 'A few times a month': '14 surveys available',
+            'Rarely': '9 surveys available', 'Never': '7 surveys available'
+        },
+        cat: {
+            'Finance': 'R60–R120 per survey', 'Health': 'R40–R80 per survey',
+            'Technology': 'R50–R95 per survey', 'Food': 'R30–R65 per survey'
+        },
+        time: {
+            '30 min': 'R200–R500/month', '1–2 hrs': 'R600–R1,100/month',
+            '3–5 hrs': 'R1,200–R2,000/month', '5+ hrs': 'R2,000–R3,200/month'
+        }
+    };
+
+    const SURVEY_PANELS = {
+        'Finance':    { name: 'Valued Opinions — Finance',   meta: 'Finance & Insurance · 12–18 min', earn: 'R65–R110', bg: '#EDE9FE', ic: '#7C3AED' },
+        'Health':     { name: 'LifePoints — Health',         meta: 'Health & Wellness · 10–15 min',   earn: 'R40–R80',  bg: '#FDE8F0', ic: '#EC4899' },
+        'Technology': { name: 'Toluna — Technology',         meta: 'Tech & Gadgets · 8–12 min',       earn: 'R50–R95',  bg: '#E8F0FE', ic: '#4285F4' },
+        'Food':       { name: 'OpinionWorld — Lifestyle',    meta: 'Food & Lifestyle · 10–20 min',    earn: 'R30–R65',  bg: '#ECFDF5', ic: '#10B981' }
+    };
+
+    const TICKERS = [
+        '47 people from South Africa completed this quiz today',
+        'A new survey paying R85 was just posted to the platform',
+        'Members in Gauteng earned an average of R940 last month',
+        '12 surveys are currently open and waiting for respondents',
+        'Thabo from Johannesburg earned R1,240 last month',
+        'Priya from Cape Town just claimed her welcome bonus'
+    ];
+
+    let tickerIdx = 0;
+    setInterval(() => {
+        tickerIdx = (tickerIdx + 1) % TICKERS.length;
+        const el = document.getElementById('tickerText');
+        el.style.opacity = '0';
+        setTimeout(() => { el.textContent = TICKERS[tickerIdx]; el.style.opacity = '1'; }, 300);
+    }, 4000);
+    document.getElementById('tickerText').style.transition = 'opacity 0.3s';
+
+    // ── QUIZ LOGIC ──
+    function pick(btn, q, key, val, score, earn) {
+        document.getElementById('q' + q).querySelectorAll('.opt').forEach(b => b.classList.remove('sel'));
+        btn.classList.add('sel');
+        A[key] = { val, score, earn };
+
+        const rt = document.getElementById('r' + q + 't');
+        rt.textContent = REACTIONS[key][val];
+        document.getElementById('r' + q).classList.add('show');
+
+        const ei = document.getElementById('ei' + q);
+        document.getElementById('ei' + q + 'v').textContent = EARN_INDICATORS[key][val];
+        ei.classList.add('show');
+
+        setTimeout(() => document.getElementById('n' + q).classList.add('on'), 350);
+
+        // Pixel: step interaction
+        if (typeof fbq !== 'undefined') fbq('trackCustom', 'QuizStep', { step: q, answer: val });
+
+        // Update left panel step indicators
+        for (let i = 1; i <= 3; i++) {
+            const el = document.getElementById('snum' + i);
+            if (el && q >= i) el.classList.add('done');
+        }
+    }
+
+    function next(from, to) {
+        const curr = document.getElementById('q' + from);
+        curr.classList.add('leaving');
+        setTimeout(() => {
+            curr.classList.remove('active', 'leaving');
+            document.getElementById('q' + to).classList.add('active');
+            updateProgress(to);
+        }, 220);
+    }
+
+    function updateProgress(step) {
+        const pips = document.getElementById('progPips').children;
+        for (let i = 0; i < pips.length; i++) {
+            pips[i].classList.remove('filled', 'active');
+            if (i < step - 1) pips[i].classList.add('filled');
+            else if (i === step - 1) pips[i].classList.add('active');
+        }
+        document.getElementById('progLabel').textContent = 'Question ' + step + ' of ' + TOTAL;
+    }
+
+    function calcScore() {
+        const vals = Object.values(A);
+        return Math.round(vals.reduce((s, a) => s + a.score, 0) / vals.length);
+    }
+
+    function calcEarn() {
+        const timeEarn = A.time ? A.time.earn : 750;
+        const catBoost = A.cat ? (A.cat.score / 100) : 0.75;
+        const occBoost = A.occ ? (A.occ.score / 100) : 0.7;
+        return Math.round(timeEarn * catBoost * occBoost);
+    }
+
+    function showReveal() {
+        const curr = document.getElementById('q5');
+        curr.classList.add('leaving');
+
+        const score = calcScore();
+        const earn = calcEarn();
+        const panels = Math.min(4, Math.max(2, Math.round(score / 25)));
+        const surveys = Math.round(score / 8);
+        const bonus = score >= 80 ? 150 : score >= 65 ? 120 : 90;
+
+        document.getElementById('revAmt').textContent = 'R' + earn.toLocaleString();
+        document.getElementById('bkScore').textContent = score + '%';
+        document.getElementById('bkPanels').textContent = panels + ' of 4';
+        document.getElementById('bkSurveys').textContent = surveys + ' surveys';
+        document.getElementById('bkBonus').textContent = 'Up to R' + bonus;
+        document.getElementById('successAmt').textContent = 'Up to R' + bonus;
+
+        // Build survey cards
+        const cat = A.cat ? A.cat.val : 'Finance';
+        const allCats = ['Finance', 'Health', 'Technology', 'Food'];
+        const ordered = [cat, ...allCats.filter(c => c !== cat)].slice(0, panels);
+        const container = document.getElementById('surveyCards');
+        container.innerHTML = '';
+        ordered.forEach(c => {
+            const p = SURVEY_PANELS[c];
+            container.innerHTML += `
+                <div class="survey-card">
+                    <div class="survey-card-icon" style="background:${p.bg};">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="${p.ic}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <div class="survey-card-body">
+                        <div class="survey-card-name">${p.name}</div>
+                        <div class="survey-card-meta">${p.meta}</div>
+                    </div>
+                    <div class="survey-card-earn">${p.earn}<span>per survey</span></div>
+                </div>`;
+        });
+
+        // Pixel: quiz complete
+        if (typeof fbq !== 'undefined') {
+            fbq('trackCustom', 'QuizComplete', { score, estimated_earn: earn });
+            fbq('track', 'Lead');
+        }
+
+        setTimeout(() => {
+            curr.classList.remove('active', 'leaving');
+            document.getElementById('progLabel').textContent = 'Results ready';
+            const pips = document.getElementById('progPips').children;
+            for (let i = 0; i < pips.length; i++) pips[i].classList.add('filled');
+            document.getElementById('reveal').classList.add('active');
+        }, 220);
+    }
+
+    function claim() {
+        const fn = document.getElementById('rfn').value.trim();
+        const em = document.getElementById('rem').value.trim();
+        let valid = true;
+
+        ['rfn', 'rem'].forEach(id => {
+            const el = document.getElementById(id);
+            el.classList.remove('err');
+            const bad = !el.value.trim() || (id === 'rem' && !el.value.includes('@'));
+            if (bad) { el.classList.add('err'); valid = false; }
+        });
+
+        if (!valid) return;
+
+        // Pixel: registration / CompleteRegistration
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'CompleteRegistration');
+            fbq('trackCustom', 'BonusClaimed', { name: fn });
+        }
+
+        // BeMob redirect — open tracking link, then show success
+        const bemob = 'https://fqln4.bemobtrcks.com/go/06ec63d4-8757-4962-9be7-e71e290b2375';
+        const params = new URLSearchParams(window.location.search);
+        const url = bemob
+            + '?ad_id=' + (params.get('ad_id') || '')
+            + '&adset_id=' + (params.get('adset_id') || '')
+            + '&campaign_id=' + (params.get('campaign_id') || '')
+            + '&ad_name=' + (params.get('ad_name') || '')
+            + '&adset_name=' + (params.get('adset_name') || '')
+            + '&campaign_name=' + (params.get('campaign_name') || '');
+
+        window.open(url, '_blank');
+
+        document.getElementById('reveal').classList.remove('active');
+        document.getElementById('reveal').style.display = 'none';
+        document.getElementById('progRow').style.display = 'none';
+        document.getElementById('ticker').style.display = 'none';
+        setTimeout(() => document.getElementById('success').classList.add('active'), 100);
+    }
+</script>
+</body>
+</html>
