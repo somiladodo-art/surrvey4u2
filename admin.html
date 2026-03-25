@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Responses</title>
+    <script>
+        function exportToCSV() {
+            // Excel Export Logic
+            let data = [...document.querySelectorAll('table tr')].map(e => [...e.children].map(cell => cell.innerText));
+            let csvContent = data.map(e => e.join(",")).join("\n");
+            let blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            let url = URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'survey_responses.csv');
+            a.click();
+        }
+        
+        function filterTable() {
+            const input = document.getElementById("filterInput");
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById("responsesTable");
+            const tr = table.getElementsByTagName("tr");
+            
+            for (let i = 1; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName("td")[0]; // Assuming filtering by the first column (Email)
+                if (td) {
+                    const txtValue = td.textContent || td.innerText;
+                    tr[i].style.display = txtValue.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Submitted Survey Responses</h1>
+    <input type="text" id="filterInput" onkeyup="filterTable()" placeholder="Filter by email..." />
+    <button onclick="exportToCSV()">Export to CSV</button>
+    <table id="responsesTable" border="1">
+        <tr>
+            <th>Email</th>
+            <th>Response</th>
+        </tr>
+        <!-- Sample Row -->
+        <tr>
+            <td>example@example.com</td>
+            <td>Sample response...</td>
+        </tr>
+        <!-- More rows will be dynamically generated here -->
+    </table>
+</body>
+</html>
